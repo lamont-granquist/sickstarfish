@@ -14,7 +14,7 @@ end
 
 group :development, :test do
   gem "sqlite3"
-  gem "thin"
+  gem "puma"
 end
 
 gem "uglifier", ">= 1.0.3"

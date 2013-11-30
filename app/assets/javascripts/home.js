@@ -73,7 +73,6 @@ function initmap() {
   getStateFromURL()
 
   map = new L.map('map', {
-    measureControl: true,
     maxZoon: 22,
   })
 
@@ -91,6 +90,10 @@ function initmap() {
   map.addLayer(osm)
 
 /*  makeAjaxRequests() */
+  $(window).on('orientationchange pageshow resize', function () {
+    $("#map").height($(window).height());
+    map.invalidateSize();
+  }).trigger('resize');
 
   map.on('moveend', onMapMove)
 }
