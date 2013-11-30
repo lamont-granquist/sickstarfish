@@ -11,9 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131130002038) do
+ActiveRecord::Schema.define(version: 20131130002039) do
 
-  create_table "tags", force: true do |t|
+  create_table "tweets", force: true do |t|
     t.string   "tag_type"
     t.decimal  "lat",            precision: 15, scale: 10
     t.decimal  "lng",            precision: 15, scale: 10
@@ -26,6 +26,6 @@ ActiveRecord::Schema.define(version: 20131130002038) do
     t.datetime "updated_at"
   end
 
-  add_index "tags", ["lat", "lng"], name: "index_tags_on_lat_and_lng"
+  add_index "tweets", ["lat", "lng"], name: "index_tweets_on_lat_and_lng"
 
 end

@@ -31,6 +31,9 @@ gem "font-awesome-rails"
 # javascript mapping
 gem 'leaflet-rails'
 
+# twitter API to search tweets
+gem 'twitter'
+
 group :test do
   gem "shoulda"
 end
