@@ -21,7 +21,6 @@ gem "uglifier", ">= 1.0.3"
 gem "therubyracer", "~> 0.10.2", require: "v8"
 gem "bootstrap-sass", "~> 3.0"
 
-gem "jquery-rails"
 gem "figaro"
 gem "simple_form"
 gem "rake", "~> 0.9.3.beta.1"
