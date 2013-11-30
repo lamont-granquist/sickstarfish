@@ -29,6 +29,9 @@ gem "will_paginate"
 gem "will_paginate-bootstrap"
 gem "font-awesome-rails"
 
+# javascript mapping
+gem 'leaflet-rails'
+
 group :test do
   gem "shoulda"
 end
