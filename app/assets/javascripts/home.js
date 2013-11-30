@@ -39,7 +39,7 @@ function getStateFromURL() {
   // z = zoom
   state["z"] = $.QueryString["z"]
   if ( state["z"] == undefined ) {
-    state["z"] = 9
+    state["z"] = 2
   }
 /*  // t = tags ( can be undefined )
   state["t"] = $.QueryString["t"]
