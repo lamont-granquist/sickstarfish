@@ -20,6 +20,8 @@
     <%= stylesheet_link_tag    "application", :media => "all" %>
     <link href='//fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 
+    <!-- Deferred loading so they load faster and start quicker because they're in the head -->
+    <%= javascript_include_tag("application", defer: true) %>
   </head>
   <body>
 
@@ -36,10 +38,6 @@
       </div>
     </div>
 
-    <!-- Javascripts
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <%= javascript_include_tag "application" %>
   </body>
 </html>
 
