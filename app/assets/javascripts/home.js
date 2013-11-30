@@ -91,7 +91,7 @@ function initmap() {
 
 /*  makeAjaxRequests() */
   $(window).on('orientationchange pageshow resize', function () {
-    $("#map").height($(window).height());
+    $("#map").height($(window).height() - 51);
     map.invalidateSize();
   }).trigger('resize');
 
