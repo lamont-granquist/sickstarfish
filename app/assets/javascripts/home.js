@@ -103,24 +103,9 @@ function updateTweets(data, status) {
         marker.data = data[i]
         map.addLayer(marker)
 
-/*        var embeds = data[i].embeds
-        var embed_html = ""
-        for( var j = 0; j < embeds.length; j++ ) {
-          embed_html += "<iframe src=\"http://player.vimeo.com/video/" + embeds[j].embed_id + "\" width=\"320\" height=\"180\" frameborder=\"0\" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>"
-        }
-        marker_html = "<h4><a href=\"/sites/" + data[i].id +"\">" + data[i].name + "</a></h4>"
-        if ( data[i].description ) {
-          marker_html += data[i].description + "<br/>"
-        }
-        if ( data[i].awois_history ) {
-          marker_html += data[i].awois_history + "<br/>"
-        }
-        marker.bindPopup(marker_html + embed_html, {maxWidth:640, minWidth:320})
-        var labelOpts = {}
-        console.log(state["sl"])
-        if (state["sl"] != undefined ) { labelOpts = { noHide: true } }
-        marker.bindLabel(data[i].name, labelOpts)
-        if (state["sl"] != undefined ) { marker.showLabel() } */
+        marker_html = "<a href=\"" + data[i].uri + "\">" + data[i].full_text + "</a></br>"
+        marker_html += data[i].user_name + "<br/>"
+        marker.bindPopup(marker_html)
 
         tweetlayers[data[i].id] = marker
       }

@@ -69,7 +69,7 @@ namespace :import do
           :lng => media.location.longitude,
           :image_uri => media.images.thumbnail.url,
         )
-        t.save
+        t.save rescue nil
       end
     end
   end
