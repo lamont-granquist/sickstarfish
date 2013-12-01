@@ -32,7 +32,13 @@ gem "font-awesome-rails"
 gem 'leaflet-rails'
 
 # twitter API to search tweets
-gem 'twitter'
+gem 'twitter', :path => "../twitter"
+
+# reading EXIF data
+gem 'exifr'
+
+# searching instagram
+gem 'instagram'
 
 group :test do
   gem "shoulda"

@@ -11,10 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131130002039) do
+ActiveRecord::Schema.define(version: 20131130002040) do
 
   create_table "tweets", force: true do |t|
-    t.string   "tag_type"
+    t.string   "tweet_type"
     t.decimal  "lat",            precision: 15, scale: 10
     t.decimal  "lng",            precision: 15, scale: 10
     t.string   "uri"
