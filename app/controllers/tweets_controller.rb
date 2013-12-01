@@ -1,10 +1,12 @@
 class TweetsController < ApplicationController
+  respond_to :html, :json
   before_action :set_tweet, only: [:show, :edit, :update, :destroy]
 
   # GET /tweets
   # GET /tweets.json
   def index
-    @tweets = Tweet.all
+    @tweets = BoundedTweetQuery.new(bb: params[:bb])
+    respond_with(@tweets)
   end
 
   # GET /tweets/1

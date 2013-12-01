@@ -3,8 +3,9 @@ class Tweet < ActiveRecord::Base
 
    validates :tweet_type, inclusion: TWEET_TYPES
 
-   validates_presence_of :lat
-   validates_presence_of :lng
+   validates :lat, :numericality => { :greater_than_or_equal_to => -90, :less_than_or_equal_to => 90 }, :presence => true
+   validates :lng, :numericality => { :greater_than_or_equal_to => -180, :less_than_or_equal_to => 180 }, :presence => true
+
    validates_presence_of :uri
    validates_presence_of :full_text
    validates_presence_of :user_name
@@ -12,5 +13,7 @@ class Tweet < ActiveRecord::Base
    validates_presence_of :image_uri
 
    validates_uniqueness_of :uri
+
+
 end
 
