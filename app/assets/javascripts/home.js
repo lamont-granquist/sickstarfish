@@ -65,7 +65,7 @@ function updateState() {
   state["z"] = map.getZoom()
 }
 
-function onMapMove() { updateState(); pushState(); /* makeAjaxRequests(); */ }
+function onMapMove() { updateState(); pushState();  makeAjaxRequests();  }
 
 function getDeltas(data, hash) {
   var deltas = { 'retained': {}, 'added': {}, 'removed': {} }
