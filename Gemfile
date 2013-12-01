@@ -32,7 +32,7 @@ gem "font-awesome-rails"
 gem 'leaflet-rails'
 
 # twitter API to search tweets
-gem 'twitter', :path => "../twitter"
+gem 'twitter'
 
 # reading EXIF data
 gem 'exifr'
