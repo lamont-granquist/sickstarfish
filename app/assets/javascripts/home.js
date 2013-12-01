@@ -18,6 +18,7 @@
 
 var map;
 var state={};
+var tweetlayers={};
 
 function hookPopStateForHistory() {
   window.addEventListener('popstate', function(event) {
@@ -66,6 +67,84 @@ function updateState() {
 
 function onMapMove() { updateState(); pushState(); /* makeAjaxRequests(); */ }
 
+function getDeltas(data, hash) {
+  var deltas = { 'retained': {}, 'added': {}, 'removed': {} }
+  for(i=0;i<data.length;i++) {
+    id = data[i].id
+    if (id in hash ) {
+      deltas['retained'][id] = true
+    } else {
+      deltas['added'][id] = true
+    }
+  }
+  for(var id in hash) {
+    if ( !(id in deltas['retained']) ) {
+      deltas['removed'][id] = true
+    }
+  }
+  return deltas
+}
+
+function removeLayers(deltas, hash) {
+  for(var id in deltas['removed']) {
+    map.removeLayer(hash[id])
+    delete hash[id]
+  }
+}
+
+function updateTweets(data, status) {
+  if (status == "success") {
+    deltas = getDeltas(data, tweetlayers)
+    removeLayers(deltas, tweetlayers)
+    for(var i=0;i<data.length;i++) {
+      if ( data[i].id in deltas['added'] ) {
+        var point = new L.LatLng(data[i].lat,data[i].lng)
+        var marker = new L.marker(point)
+        marker.data = data[i]
+        map.addLayer(marker)
+
+/*        var embeds = data[i].embeds
+        var embed_html = ""
+        for( var j = 0; j < embeds.length; j++ ) {
+          embed_html += "<iframe src=\"http://player.vimeo.com/video/" + embeds[j].embed_id + "\" width=\"320\" height=\"180\" frameborder=\"0\" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>"
+        }
+        marker_html = "<h4><a href=\"/sites/" + data[i].id +"\">" + data[i].name + "</a></h4>"
+        if ( data[i].description ) {
+          marker_html += data[i].description + "<br/>"
+        }
+        if ( data[i].awois_history ) {
+          marker_html += data[i].awois_history + "<br/>"
+        }
+        marker.bindPopup(marker_html + embed_html, {maxWidth:640, minWidth:320})
+        var labelOpts = {}
+        console.log(state["sl"])
+        if (state["sl"] != undefined ) { labelOpts = { noHide: true } }
+        marker.bindLabel(data[i].name, labelOpts)
+        if (state["sl"] != undefined ) { marker.showLabel() } */
+
+        tweetlayers[data[i].id] = marker
+      }
+    }
+  }
+}
+
+function makeAjaxRequests() {
+  var bounds = map.getBounds()
+  var minll=bounds.getSouthWest()
+  var maxll=bounds.getNorthEast()
+  var bbstr=bounds.toBBoxString()
+
+  console.log('new bounding box: '+bbstr)
+
+  /* get sites */
+  var url = 'tweets.json?bb='+bbstr
+  $.ajax({
+    type: 'GET',
+    url: url,
+    success: updateTweets
+  })
+}
+
 function initmap() {
 
   hookPopStateForHistory()
@@ -73,7 +152,7 @@ function initmap() {
   getStateFromURL()
 
   map = new L.map('map', {
-    maxZoon: 22,
+    maxZoom: 22,
   })
 
   var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
@@ -89,13 +168,16 @@ function initmap() {
 
   map.addLayer(osm)
 
-/*  makeAjaxRequests() */
   $(window).on('orientationchange pageshow resize', function () {
     $("#map").height($(window).height() - 51);
     map.invalidateSize();
+    makeAjaxRequests()
+
   }).trigger('resize');
 
   map.on('moveend', onMapMove)
+
+  makeAjaxRequests()
 }
 
 
