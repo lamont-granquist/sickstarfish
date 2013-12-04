@@ -22,25 +22,39 @@
 
     <!-- Deferred loading so they load faster and start quicker because they're in the head -->
     <%= javascript_include_tag("application", defer: true) %>
+
+    <script src="https://rawgithub.com/ascott1/bigSlide.js/master/dist/bigSlide.min.js" defer></script>
   </head>
   <body>
 
     <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-
           <a class="navbar-brand" href="#">Sick Star Fish Map</a>
         </div>
         <div class="nav navbar-nav navbar-right">
-          <button type="button" class="btn btn-default navbar-btn">
+          <button type="button" class="btn btn-default navbar-btn menu-link">
             <i class="fa fa-bars"></i>&nbsp;Menu
           </button>
         </div>
       </div>
     </div>
-
-    <%= yield %>
-
+      <div id="menu" class="menu width">
+          <div class="navbar nabvar-inverse">
+            <div class="navbar-inner">
+              Menu
+            </div>
+          </div>
+          <ul class="nav nav-tabs nav-stacked">
+            <li><a>Map</a></li>
+            <li><a>About Project</a></li>
+            <li><a>Wasting Disease</a></li>
+            <li><a>FAQ</a></li>
+          </ul>
+        </div>
+        <div class="push" style="position: relative;">
+        <%= yield %>
+      </div>
   </body>
 </html>
 

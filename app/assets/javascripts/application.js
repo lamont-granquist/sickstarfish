@@ -13,4 +13,10 @@
 //= require jquery-2.0.3
 //= require turbolinks
 //= require leaflet
+//= require bootstrap
 //= require_tree .
+
+
+$('document').ready(function() {
+  $('.menu-link').bigSlide();
+});
