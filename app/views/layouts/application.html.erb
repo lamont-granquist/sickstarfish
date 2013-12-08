@@ -22,8 +22,6 @@
 
     <!-- Deferred loading so they load faster and start quicker because they're in the head -->
     <%= javascript_include_tag("application", defer: true) %>
-
-    <script src="https://rawgithub.com/ascott1/bigSlide.js/master/dist/bigSlide.min.js" defer></script>
   </head>
   <body>
 
@@ -39,7 +37,7 @@
         </div>
       </div>
     </div>
-      <div id="menu" class="menu width">
+      <div id="menu" class="panel" role="navigation">
           <div class="navbar nabvar-inverse">
             <div class="navbar-inner">
               Menu
