@@ -122,7 +122,7 @@ function makeAjaxRequests() {
   console.log('new bounding box: '+bbstr)
 
   /* get sites */
-  var url = 'tweets.json?bb='+bbstr
+  var url = '/tweets.json?bb='+bbstr
   $.ajax({
     type: 'GET',
     url: url,
