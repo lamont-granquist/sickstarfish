@@ -4,7 +4,7 @@ gem "rails", "~> 4.0.0"
 gem "sass-rails", "~> 4.0.0"
 gem "coffee-rails", "~> 4.0.0"
 
-gem "turbolinks"
+#gem "turbolinks"
 gem "jbuilder", "~> 1.0.1"
 
 group :production do
