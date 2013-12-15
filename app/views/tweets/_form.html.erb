@@ -1,10 +1,32 @@
-<%= simple_form_for(@thing, :html => { :class => 'form-horizontal' } ) do |f| %>
+<%= simple_form_for(@tweet, :html => { :class => 'form-horizontal' } ) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :name,
+    t.string   "tweet_type"
+    t.decimal  "lat",            precision: 15, scale: 10
+    t.decimal  "lng",            precision: 15, scale: 10
+    t.string   "uri"
+    t.string   "full_text"
+    t.string   "user_name"
+    t.string   "user_image_uri"
+    t.string   "image_uri"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    <%= f.input :tweet_type,
         :placeholder => 'helpful_short_hint' %>
-    <%= f.input :description,
+    <%= f.input :lat,
+        :placeholder => 'helpful_short_hint' %>
+    <%= f.input :lng,
+        :placeholder => 'helpful_short_hint' %>
+    <%= f.input :uri,
+        :placeholder => 'helpful_short_hint' %>
+    <%= f.input :full_text,
+        :placeholder => 'helpful_short_hint' %>
+    <%= f.input :user_name,
+        :placeholder => 'helpful_short_hint' %>
+    <%= f.input :user_image_uri,
+        :placeholder => 'helpful_short_hint' %>
+    <%= f.input :image_uri,
         :placeholder => 'helpful_short_hint' %>
   </div>
 
