@@ -103,7 +103,8 @@ function updateTweets(data, status) {
         marker.data = data[i]
         map.addLayer(marker)
 
-        marker_html = "<a href=\"" + data[i].uri + "\">" + data[i].full_text + "</a></br>"
+        marker_html = "<img src=\"" + data[i].image_uri + "\" alt=\"image from instagram\" width=\"120\" height=\"120\" style=\"float:left;\">"
+        marker_html += "<a href=\"" + data[i].uri + "\" target=\"_blank\">" + data[i].full_text + "</a></br>"
         marker_html += data[i].user_name + "<br/>"
         marker.bindPopup(marker_html)
 
