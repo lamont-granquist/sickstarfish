@@ -24,17 +24,13 @@
     <%= javascript_include_tag("application", defer: true) %>
   </head>
   <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="navbar-header" style="float: none;">
           <a class="navbar-brand" href="#">Sick Star Fish Map</a>
+            <button type="button" style="float: right; margin-right: 10px;" class="btn btn-default navbar-btn menu-link">
+              <i class="fa fa-bars"></i>&nbsp;Menu
+            </button>
         </div>
-        <div class="nav navbar-nav navbar-right">
-          <button type="button" class="btn btn-default navbar-btn menu-link">
-            <i class="fa fa-bars"></i>&nbsp;Menu
-          </button>
-        </div>
-      </div>
     </div>
     <div id="menu" class="panel" role="navigation">
       <ul class="nav nav-tabs nav-stacked">
