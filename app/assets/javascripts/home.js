@@ -66,6 +66,7 @@ function updateState() {
 }
 
 function onMapMove() { updateState(); pushState();  makeAjaxRequests();  }
+function onContextMenu() { console.log("contextmenu") }
 
 function getDeltas(data, hash) {
   var deltas = { 'retained': {}, 'added': {}, 'removed': {} }
@@ -161,7 +162,8 @@ function initmap() {
 
   }).trigger('resize');
 
-  map.on('moveend', onMapMove)
+  map.on('moveend', onMapMove);
+  map.on('contextmenu', onContextMenu);
 
   makeAjaxRequests()
 }
