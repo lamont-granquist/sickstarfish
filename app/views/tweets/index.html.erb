@@ -7,9 +7,16 @@
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
-      <th><%= model_class.human_attribute_name(:name) %></th>
-      <th><%= model_class.human_attribute_name(:description) %></th>
+      <th><%= model_class.human_attribute_name(:tweet_type) %></th>
+      <th><%= model_class.human_attribute_name(:lat) %></th>
+      <th><%= model_class.human_attribute_name(:lng) %></th>
+      <th><%= model_class.human_attribute_name(:uri) %></th>
+      <th><%= model_class.human_attribute_name(:full_text) %></th>
+      <th><%= model_class.human_attribute_name(:user_name) %></th>
+      <th><%= model_class.human_attribute_name(:user_image_uri) %></th>
+      <th><%= model_class.human_attribute_name(:image_uri) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= model_class.human_attribute_name(:updated_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -17,9 +24,16 @@
     <% @tweets.each do |tweet| %>
       <tr>
         <td><%= link_to tweet.id, tweet_path(tweet) %></td>
-        <td><%= tweet.name %></td>
-        <td><%= tweet.description %></td>
+        <td><%= tweet.tweet_type %></td>
+        <td><%= tweet.lat %></td>
+        <td><%= tweet.lng %></td>
+        <td><%= tweet.uri %></td>
+        <td><%= tweet.full_text %></td>
+        <td><%= tweet.user_name %></td>
+        <td><%= tweet.user_image_uri %></td>
+        <td><%= tweet.image_uri %></td>
         <td><%=l tweet.created_at %></td>
+        <td><%=l tweet.updated_at %></td>
         <td>
           <%= link_to edit_tweet_path(tweet),
                       :class => 'btn btn-mini' do %>
