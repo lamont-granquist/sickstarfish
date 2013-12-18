@@ -4,20 +4,36 @@
 </div>
 
 <dl class="dl-horizontal">
-  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
-  <dd><%= @thing.name %></dd>
-  <dt><strong><%= model_class.human_attribute_name(:description) %>:</strong></dt>
-  <dd><%= @thing.description %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:tweet_type) %>:</strong></dt>
+  <dd><%= @tweet.tweet_type %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:lat) %>:</strong></dt>
+  <dd><%= @tweet.lat %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:lng) %>:</strong></dt>
+  <dd><%= @tweet.lng %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:uri) %>:</strong></dt>
+  <dd><%= @tweet.uri %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:full_text) %>:</strong></dt>
+  <dd><%= @tweet.full_text %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:user_name) %>:</strong></dt>
+  <dd><%= @tweet.user_name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:user_image_uri) %>:</strong></dt>
+  <dd><%= @tweet.user_image_uri %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:image_uri) %>:</strong></dt>
+  <dd><%= @tweet.image_uri %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:created_at) %>:</strong></dt>
+  <dd><%= @tweet.created_at %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:updated_at) %>:</strong></dt>
+  <dd><%= @tweet.updated_at %></dd>
 </dl>
 
 <div class="form-actions">
   <%= link_to t('.back', :default => t("helpers.links.back")),
-              things_path, :class => 'btn'  %>
-  <%= link_to edit_thing_path(@thing), :class => 'btn' do %>
+              tweets_path, :class => 'btn'  %>
+  <%= link_to edit_tweet_path(@tweet), :class => 'btn' do %>
     <i class="icon-edit"></i>
     <%= t('.edit', :default => t("helpers.links.edit")) %>
   <% end %>
-  <%= link_to thing_path(@thing),
+  <%= link_to tweet_path(@tweet),
               :method => 'delete',
               :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
               :class => 'btn btn-danger' do %>
