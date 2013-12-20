@@ -5,6 +5,7 @@ Sickstarfish::Application.routes.draw do
   get "static/about"
   get "static/disease"
   get "static/faq"
+  get "static/help"
 
   resources :tweets
 
