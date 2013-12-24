@@ -56,7 +56,10 @@ function updateState() {
 }
 
 function onMapMove() { updateState(); pushState();  makeAjaxRequests();  }
-function onContextMenu() { console.log("contextmenu") }
+function onContextMenu() {
+  console.log("contextmenu")
+  window.location.href = "/tweets/new.html"
+}
 
 function getDeltas(data, hash) {
   var deltas = { 'retained': {}, 'added': {}, 'removed': {} }
