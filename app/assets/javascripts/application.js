@@ -10,8 +10,7 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery-ujs
+//= require jquery-2.0.3
 //= require leaflet
 //= require bootstrap
 //= require_tree .
