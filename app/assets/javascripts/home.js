@@ -42,20 +42,10 @@ function getStateFromURL() {
   if ( state["z"] == undefined ) {
     state["z"] = 9
   }
-/*  // t = tags ( can be undefined )
-  state["t"] = $.QueryString["t"]
-  // sl = show labels ( can be undefined )
-  state["sl"] = $.QueryString["sl"] */
 }
 
 function pushState() {
   querystr = "?ll=" + state["ll"] + "&z=" + state["z"]
-/*  if ( state["t"] != undefined ) {
-    querystr += "&t=" + state["t"]
-  }
-  if ( state["sl"] != undefined ) {
-    querystr += "&sl=" + state["sl"]
-  } */
   history.pushState( state, "NewTitle", querystr )
 }
 
