@@ -56,9 +56,9 @@ function updateState() {
 }
 
 function onMapMove() { updateState(); pushState();  makeAjaxRequests();  }
-function onContextMenu() {
+function onContextMenu(e) {
   console.log("contextmenu")
-  window.location.href = "/tweets/new.html"
+  window.location.href = "/tweets/new.html?lat=" + e.latlng.lat + "&lng=" + e.latlng.lng
 }
 
 function getDeltas(data, hash) {
