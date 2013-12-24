@@ -1,5 +1,5 @@
 class Tweet < ActiveRecord::Base
-   TWEET_TYPES = [ "twitter", "instagram", "facebook" ]
+   TWEET_TYPES = [ "twitter", "instagram", "facebook", "manual" ]
 
    validates :tweet_type, inclusion: TWEET_TYPES
 
