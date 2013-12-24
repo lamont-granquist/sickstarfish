@@ -17,6 +17,8 @@ group :development, :test do
   gem "puma"
 end
 
+gem "bower-rails", "~> 0.6"
+
 gem "uglifier", ">= 1.0.3"
 gem "therubyracer", "~> 0.10.2", require: "v8"
 gem "bootstrap-sass", "~> 3.0"
