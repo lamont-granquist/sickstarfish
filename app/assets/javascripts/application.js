@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery-2.0.3
+//= require jquery-ujs
 //= require leaflet
 //= require bootstrap
 //= require_tree .
