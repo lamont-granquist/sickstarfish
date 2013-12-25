@@ -1,42 +1,20 @@
-<%= simple_form_for(@tweet, :html => { :class => 'form-horizontal' } ) do |f| %>
-  <%= f.error_notification %>
 
-  <div class="form-inputs">
-    t.string   "tweet_type"
-    t.decimal  "lat",            precision: 15, scale: 10
-    t.decimal  "lng",            precision: 15, scale: 10
-    t.string   "uri"
-    t.string   "full_text"
-    t.string   "user_name"
-    t.string   "user_image_uri"
-    t.string   "image_uri"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    <%= f.input :tweet_type,
-        :placeholder => 'helpful_short_hint' %>
-    <%= f.input :lat,
-        :placeholder => 'helpful_short_hint' %>
-    <%= f.input :lng,
-        :placeholder => 'helpful_short_hint' %>
-    <%= f.input :uri,
-        :placeholder => 'helpful_short_hint' %>
-    <%= f.input :full_text,
-        :placeholder => 'helpful_short_hint' %>
-    <%= f.input :user_name,
-        :placeholder => 'helpful_short_hint' %>
-    <%= f.input :user_image_uri,
-        :placeholder => 'helpful_short_hint' %>
-    <%= f.input :image_uri,
-        :placeholder => 'helpful_short_hint' %>
-  </div>
+<%= bootstrap_form_for(@tweet, style: :horizontal, left: "col-sm-2", right: "col-sm-10") do |f| %>
+  <%= f.alert_message "Please fix the errors below." %>
 
-  <div class="form-actions">
-    <%= button_tag type: 'submit', class: "btn btn-primary" do %>
-      <i class="icon-save"></i> <%= "#{f.object.new_record? ? 'Create' : 'Update'} #{f.object.class.model_name.human}" %>
+  <%= f.text_field :tweet_type %>
+  <%= f.number_field :lat %>
+  <%= f.number_field :lng %>
+  <%= f.text_field :uri %>
+    <%= f.text_area :full_text %>
+    <%= f.text_field :user_name %>
+    <%= f.text_field :user_image_uri %>
+    <%= f.text_field :image_uri %>
+
+    <%= button_tag type: 'submit', class:  'btn btn-primary' do %>
+      <i class='fa fa-save'></i> <%= f.object.new_record? ? 'Create' : 'Update' %>
     <% end %>
     <%= button_tag type: 'reset', class: "btn btn-danger" do %>
-      <i class="icon-remove"></i>
-      Cancel
+      <i class="fa fa-trash-o"></i> Cancel
     <% end %>
-  </div>
 <% end %>

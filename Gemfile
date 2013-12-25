@@ -22,7 +22,7 @@ gem "therubyracer", "~> 0.10.2", require: "v8"
 gem "bootstrap-sass", "~> 3.0"
 
 gem "figaro"
-gem "simple_form"
+gem "bootstrap_form"
 gem "rake", "~> 0.9.3.beta.1"
 gem "will_paginate"
 gem "will_paginate-bootstrap"
