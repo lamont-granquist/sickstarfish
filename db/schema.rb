@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131130002041) do
+ActiveRecord::Schema.define(version: 20131130002042) do
 
   create_table "tweets", force: true do |t|
     t.string   "tweet_type"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20131130002041) do
     t.string   "image_uri"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "hide",                                     default: false
   end
 
   add_index "tweets", ["lat", "lng"], name: "index_tweets_on_lat_and_lng"

@@ -1,6 +1,7 @@
 class Tweet < ActiveRecord::Base
    TWEET_TYPES = [ "twitter", "instagram", "facebook", "manual" ]
 
+   validates :hide, inclusion: [true, false]
    validates :tweet_type, inclusion: TWEET_TYPES
 
    validates :lat, :numericality => { :greater_than_or_equal_to => -90, :less_than_or_equal_to => 90 }, :presence => true
