@@ -16,7 +16,7 @@ class TweetsController < ApplicationController
 
   # GET /tweets/new
   def new
-    @tweet = Tweet.new(:lat => params[:lat], :lng => params[:lng], :tweet_type => params[:type])
+    @tweet = Tweet.new(lat: params[:lat], lng: params[:lng], tweet_type: params[:type])
   end
 
   # GET /tweets/1/edit
