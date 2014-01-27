@@ -5,7 +5,10 @@
   <%= f.text_field :tweet_type %>
   <%= f.number_field :lat, step: "any" %>
   <%= f.number_field :lng, step: "any" %>
-    <%= f.text_area :full_text %>
+  <%= f.text_area :full_text %>
+  <%= f.form_group do %>
+    <%= f.check_box :hide %>
+  <% end %>
 
     <%= button_tag type: 'submit', class:  'btn btn-primary' do %>
       <i class='fa fa-save'></i> <%= f.object.new_record? ? 'Create' : 'Update' %>

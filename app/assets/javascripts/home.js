@@ -64,6 +64,9 @@ function onContextMenu(e) {
 function getDeltas(data, hash) {
   var deltas = { 'retained': {}, 'added': {}, 'removed': {} }
   for(i=0;i<data.length;i++) {
+    if (data[i].hide) {
+      continue
+    }
     id = data[i].id
     if (id in hash ) {
       deltas['retained'][id] = true

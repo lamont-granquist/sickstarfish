@@ -13,6 +13,7 @@
       <th><%= model_class.human_attribute_name(:uri) %></th>
       <th><%= model_class.human_attribute_name(:full_text) %></th>
       <th><%= model_class.human_attribute_name(:user_name) %></th>
+      <th><%= model_class.human_attribute_name(:hide) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -26,6 +27,7 @@
         <td><%= tweet.uri ? link_to(tweet.uri, tweet.uri) : "NULL" %></td>
         <td><%= tweet.full_text %></td>
         <td><%= tweet.user_name %></td>
+        <td><%= tweet.hide ? "hidden" : "" %></td>
         <td>
           <%= link_to edit_tweet_path(tweet),
                       :class => 'btn btn-mini btn-primary' do %>
