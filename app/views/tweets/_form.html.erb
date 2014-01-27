@@ -3,8 +3,8 @@
   <%= f.alert_message "Please fix the errors below." %>
 
   <%= f.text_field :tweet_type %>
-  <%= f.number_field :lat %>
-  <%= f.number_field :lng %>
+  <%= f.number_field :lat, step: "any" %>
+  <%= f.number_field :lng, step: "any" %>
   <%= f.text_field :uri %>
     <%= f.text_area :full_text %>
     <%= f.text_field :user_name %>
