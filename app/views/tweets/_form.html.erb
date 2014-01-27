@@ -5,11 +5,7 @@
   <%= f.text_field :tweet_type %>
   <%= f.number_field :lat, step: "any" %>
   <%= f.number_field :lng, step: "any" %>
-  <%= f.text_field :uri %>
     <%= f.text_area :full_text %>
-    <%= f.text_field :user_name %>
-    <%= f.text_field :user_image_uri %>
-    <%= f.text_field :image_uri %>
 
     <%= button_tag type: 'submit', class:  'btn btn-primary' do %>
       <i class='fa fa-save'></i> <%= f.object.new_record? ? 'Create' : 'Update' %>
