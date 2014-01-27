@@ -13,7 +13,7 @@ class Tweet < ActiveRecord::Base
 #   validates_presence_of :image_uri
 
    validates :uri, length: { minimum: 1, allow_nil: true }
-   validates_uniqueness_of :uri
+   validates_uniqueness_of :uri, allow_nil: true
 
 
 end
