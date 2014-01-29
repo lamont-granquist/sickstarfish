@@ -40,6 +40,14 @@ gem 'exifr'
 # searching instagram
 gem 'instagram'
 
+# acct management
+gem 'devise'
+gem 'cancan'
+gem 'omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'omniauth-instagram'
+gem 'uuidtools'
+
 group :test do
   gem "shoulda"
 end

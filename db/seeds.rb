@@ -5,3 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+require 'factory_girl'
+
+FactoryGirl.create :user_role unless Role.find_by_name("User")
+FactoryGirl.create :admin_role unless Role.find_by_name("Admin")
+FactoryGirl.create :locked_role unless Role.find_by_name("Locked")

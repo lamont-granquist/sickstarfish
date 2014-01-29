@@ -1,0 +1,16 @@
+<%= simple_form_for(@user, :html => { :class => 'form-horizontal' } ) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+  </div>
+
+  <div class="form-actions">
+    <%= button_tag type: 'submit', class: "btn btn-primary" do %>
+      <i class="icon-save"></i> <%= "#{f.object.new_record? ? 'Create' : 'Update'} #{f.object.class.model_name.human}" %>
+    <% end %>
+    <%= button_tag type: 'reset', class: "btn btn-danger" do %>
+      <i class="icon-remove"></i>
+      Cancel
+    <% end %>
+  </div>
+<% end %>
