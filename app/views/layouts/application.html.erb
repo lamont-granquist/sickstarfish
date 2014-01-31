@@ -24,14 +24,21 @@
     <%= javascript_include_tag("application", defer: true) %>
   </head>
   <body>
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="navbar-header" style="float: none;">
-          <a class="navbar-brand" href="#">Sick Star Fish Map</a>
-            <button type="button" style="float: right; margin-right: 10px;" class="btn btn-default navbar-btn menu-link">
-              <i class="fa fa-bars"></i>&nbsp;Menu
-            </button>
+  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header" style="float: none;">
+        <a class="navbar-brand" href="/">Sick Star Fish Map</a>
+        <div class="nav navbar-nav navbar-right">
+          <% if user_signed_in? %>
+            <%= link_to "Logout", destroy_user_session_path, :method => :delete, :class => "btn btn-default navbar-btn", :type => "button" %>
+        <% end %>
+        <button class="btn btn-default navbar-btn menu-link" style="margin-right: 16px;" >
+            <i class="fa fa-bars"></i>&nbsp;Menu
+          </button>
         </div>
+      </div>
     </div>
+  </div>
     <div id="menu" class="panel" role="navigation">
       <ul class="nav nav-tabs nav-stacked">
         <li><%= link_to "Map", home_index_path %></li>

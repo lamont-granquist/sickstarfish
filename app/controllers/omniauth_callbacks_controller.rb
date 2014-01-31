@@ -25,7 +25,13 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     if @user
       flash[:notice] = I18n.t "devise.omniauth_callbacks.success", :kind => kind
       sign_in_and_redirect @user, :event => :authentication
-      session["devise.#{kind.downcase}_data"] = env["omniauth.auth"]
+      if (kind == "Twitter")
+        # twitter produces so much crap in extra it throws an ActionDispatch::Cookies::CookieOverflow
+        # if i can scrub facebook of using extra, maybe this conditional can be dropped?
+        session["devise.#{kind.downcase}_data"] = env["omniauth.auth"].except("extra")
+      else
+        session["devise.#{kind.downcase}_data"] = env["omniauth.auth"]
+      end
     end
   end
 
@@ -38,8 +44,8 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       name = access_token['extra']['raw_info']['name']
       auth_attr = { :uid => uid, :token => access_token['credentials']['token'], :secret => nil, :name => name, :link => access_token['extra']['raw_info']['link'] }
     when "Twitter"
-      uid = access_token['extra']['user_hash']['id']
-      name = access_token['user_info']['name']
+      uid = access_token['uid']
+      name = access_token['info']['name']
       auth_attr = { :uid => uid, :token => access_token['credentials']['token'], :secret => access_token['credentials']['secret'], :name => name, :link => "http://twitter.com/#{name}" }
     when 'Instagram'
       # FIXME: probably needs to change
@@ -95,7 +101,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
       user
     else
       user = User.new(:name => name, :password => Devise.friendly_token[0,20], :email => "#{UUIDTools::UUID.random_create}@host")
-      user.save false
+      user.save :validate => false
     end
     return user
   end

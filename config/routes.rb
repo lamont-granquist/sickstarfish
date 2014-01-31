@@ -1,6 +1,11 @@
 Sickstarfish::Application.routes.draw do
 
-  devise_for :users, :path => "accounts", :controllers => { :omniauth_callbacks => "omniauth_callbacks", :registrations => "registrations" }
+  devise_for :users, :path => "",
+    :controllers => {
+      :omniauth_callbacks => "omniauth_callbacks",
+      :registrations => "registrations"
+    },
+    :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "register" }
 
   # must come after devise_for
   resources :users do
