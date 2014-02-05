@@ -50,8 +50,8 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     when 'Instagram'
       # FIXME: probably needs to change
       uid = access_token['uid']
-      name = access_token['user_info']['name']
-      auth_attr = { :uid => uid, :token => access_token['credentials']['token'], :secret => access_token['credentials']['secret'], :name => name, :link => access_token['user_info']['public_profile_url'] }
+      name = access_token['info']['name']
+      auth_attr = { :uid => uid, :token => access_token['credentials']['token'], :secret => access_token['credentials']['secret'], :name => name, :link => access_token['info']['website'] }
     else
       raise 'Provider #{provider} not handled'
     end
