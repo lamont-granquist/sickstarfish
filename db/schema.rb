@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140129022944) do
+ActiveRecord::Schema.define(version: 20140206034942) do
 
   create_table "authorizations", force: true do |t|
     t.string   "provider"
@@ -50,9 +50,11 @@ ActiveRecord::Schema.define(version: 20140129022944) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "hide",                                     default: false
+    t.integer  "user_id"
   end
 
   add_index "tweets", ["lat", "lng"], name: "index_tweets_on_lat_and_lng"
+  add_index "tweets", ["user_id"], name: "index_tweets_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :tweets
   has_and_belongs_to_many :roles
   has_many :authorizations, :dependent => :destroy
 
