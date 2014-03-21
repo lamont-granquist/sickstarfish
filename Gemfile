@@ -38,6 +38,7 @@ gem 'twitter'
 gem 'exifr'
 
 # searching instagram
+gem 'faraday', '~> 0.8.0'
 gem 'instagram'
 
 # acct management
