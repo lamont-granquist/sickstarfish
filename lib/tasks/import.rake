@@ -55,7 +55,7 @@ namespace :import do
       config.client_id     = ENV['INSTAGRAM_CLIENT_ID']
       config.client_secret = ENV['INSTAGRAM_CLIENT_SECRET']
     end
-    %w{sickstarfish sickseastar sickseastars deadstarfish deadseastar deadseastars nosickstarfish nosickseastar nosickseastars beachstarfish beachseastar beachseastars}.each do |tag|
+    %w{sickstarfish sickseastar sickseastars deadstarfish deadseastar deadseastars nosickstarfish nosickseastar nosickseastars beachstarfish beachseastar beachseastars sickurchin sickurchins urchinwasting}.each do |tag|
       Instagram.tag_recent_media(tag).each do |media|
         next unless media.location && media.user
         next unless media.type == "image"
@@ -74,4 +74,3 @@ namespace :import do
     end
   end
 end
-
